@@ -5,6 +5,9 @@ public class Greetings {
     private long timestamp;
     private String message;
 
+    public Greetings() {
+    }
+
     public Greetings(String message, long timestamp) {
         this.timestamp = timestamp;
         this.message = message;

@@ -1,13 +1,19 @@
+kafka:
+  topic:
+    boot: boot.greetings
+
 spring:
-    cloud:
-        stream:
-            kafka:
-                binder:
-                    brokers: localhost:9092
-            bindings:
-            greetings-in:
-                destination: greetings
-                contentType: application/json
-            greetings-out:
-                destination: greetings
-                contentType: application/json
+  kafka:
+    bootstrap-servers: localhost:9092
+    producer:
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+    consumer:
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      auto-offset-reset: earliest
+      group-id: boot
+      properties:
+        spring:
+          json:
+            trusted:
+              packages: com.stockinvest.server
+

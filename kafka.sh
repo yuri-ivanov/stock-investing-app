@@ -1,2 +1,3 @@
-bin/zookeeper-server-start.sh config/zookeeper.properties
-bin/kafka-server-start.sh config/server.properties
+KAFKA_HOME=~/java/kafka
+$KAFKA_HOME/bin/zookeeper-server-start.sh $KAFKA_HOME/config/zookeeper.properties&
+$KAFKA_HOME/bin/kafka-server-start.sh $KAFKA_HOME/config/server.properties

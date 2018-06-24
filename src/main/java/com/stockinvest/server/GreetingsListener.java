@@ -2,16 +2,25 @@ package com.stockinvest.server;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.cloud.stream.annotation.StreamListener;
-import org.springframework.messaging.handler.annotation.Payload;
+import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
+
+import java.util.concurrent.CountDownLatch;
 
 @Component
 public class GreetingsListener {
-    Logger log = LoggerFactory.getLogger(GreetingsListener.class);
+    private static final Logger log = LoggerFactory.getLogger(GreetingsListener.class);
+    private CountDownLatch latch = new CountDownLatch(1);
 
-    @StreamListener(GreetingsStreams.INPUT)
-    public void handleGreetings(@Payload Greetings greetings) {
-        log.info("Received greetings: {}", greetings);
+    public CountDownLatch getLatch(){
+        return latch;
     }
+
+    @KafkaListener(topics = "${kafka.topic.boot}")
+    public void handleGreetings(Greetings consumerRecord) {
+        log.info("Received greetings: {}", consumerRecord.getMessage());
+        latch.countDown();
+    }
+
+
 }
