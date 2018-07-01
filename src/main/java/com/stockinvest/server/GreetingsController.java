@@ -12,6 +12,7 @@ public class GreetingsController {
     public GreetingsController(GreetingsService greetingsService) {
         this.greetingsService = greetingsService;
     }
+
     @GetMapping("/greetings")
     @ResponseStatus(HttpStatus.ACCEPTED)
     public void greetings(@RequestParam("message") String message) {

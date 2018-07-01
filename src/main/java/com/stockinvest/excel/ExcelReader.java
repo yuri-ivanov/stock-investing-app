@@ -1,14 +1,14 @@
 package com.stockinvest.excel;
-
+/*
 import org.apache.poi.hssf.usermodel.HSSFDateUtil;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import java.io.*;
 import java.util.Iterator;
-
+*/
 public class ExcelReader {
-
+/*
     public static void main(String[] args) {
         try {
             InputStream excelFile = ExcelReader.class.getClassLoader().getResourceAsStream("nas-27.06.18.xlsx");
@@ -48,4 +48,5 @@ public class ExcelReader {
         }
 
     }
+    */
 }
