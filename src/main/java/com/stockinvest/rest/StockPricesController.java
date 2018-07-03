@@ -15,7 +15,7 @@ public class StockPricesController {
     @Autowired
     private StockService stockService;
 
-    @GetMapping("/{ticker}/day-trades")
+    @GetMapping("/{ticker}/trades")
     @ResponseStatus(HttpStatus.ACCEPTED)
     public List<StockTrade> prices(@PathVariable("ticker") String ticker) {
         //@RequestParam(value="date", defaultValue="") String date
