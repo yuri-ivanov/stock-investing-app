@@ -15,12 +15,11 @@ public class GreetingsListener {
     public CountDownLatch getLatch(){
         return latch;
     }
-/*
+
     @KafkaListener(topics = "${kafka.topic.boot}")
-    public void handleGreetings(Greetings consumerRecord) {
+    public void handleGreetings(BigVolumeMessage consumerRecord) {
         log.info("Received greetings: {}", consumerRecord.getMessage());
         latch.countDown();
     }
-*/
 
 }
