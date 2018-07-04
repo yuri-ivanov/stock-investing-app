@@ -8,17 +8,17 @@ import org.springframework.stereotype.Component;
 import java.util.concurrent.CountDownLatch;
 
 @Component
-public class GreetingsListener {
-    private static final Logger log = LoggerFactory.getLogger(GreetingsListener.class);
+public class BigVolumeListener {
+    private static final Logger log = LoggerFactory.getLogger(BigVolumeListener.class);
     private CountDownLatch latch = new CountDownLatch(1);
 
     public CountDownLatch getLatch(){
         return latch;
     }
 
-    @KafkaListener(topics = "${kafka.topic.boot}")
-    public void handleGreetings(BigVolumeMessage consumerRecord) {
-        log.info("Received greetings: {}", consumerRecord.getMessage());
+    @KafkaListener(topics = "${kafka.topic.stocks.bigvolume}")
+    public void handleGreetings(String consumerRecord) {
+        log.info("Received greetings: {}", consumerRecord);
         latch.countDown();
     }
 

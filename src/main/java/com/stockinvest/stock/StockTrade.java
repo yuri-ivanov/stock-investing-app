@@ -1,21 +1,22 @@
 package com.stockinvest.stock;
 
-import java.time.LocalDateTime;
-
 public class StockTrade {
-    private LocalDateTime time;
+    private long time;
     private float price;
     private int quantity;
     private OrderType type;
 
-    public StockTrade(LocalDateTime time, float price, int quantity, OrderType type) {
+    public StockTrade() {
+    }
+
+    public StockTrade(long time, float price, int quantity, OrderType type) {
         this.time = time;
         this.price = price;
         this.quantity = quantity;
         this.type = type;
     }
 
-    public LocalDateTime getTime() {
+    public long getTime() {
         return time;
     }
 
@@ -29,6 +30,22 @@ public class StockTrade {
 
     public OrderType getType() {
         return type;
+    }
+
+    public void setTime(long time) {
+        this.time = time;
+    }
+
+    public void setPrice(float price) {
+        this.price = price;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public void setType(OrderType type) {
+        this.type = type;
     }
 
     @Override

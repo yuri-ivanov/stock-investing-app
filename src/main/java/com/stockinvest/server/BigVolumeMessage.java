@@ -1,16 +1,18 @@
 package com.stockinvest.server;
 
 
-public class Greetings {
-    private long timestamp;
-    private String message;
+import com.stockinvest.stock.StockTrade;
 
-    public Greetings() {
+public class BigVolumeMessage {
+    private long timestamp;
+    private StockTrade trade;
+
+    public BigVolumeMessage() {
     }
 
-    public Greetings(String message, long timestamp) {
+    public BigVolumeMessage(StockTrade trade, long timestamp) {
         this.timestamp = timestamp;
-        this.message = message;
+        this.trade= trade;
     }
 
     public long getTimestamp() {
@@ -21,11 +23,11 @@ public class Greetings {
         this.timestamp = timestamp;
     }
 
-    public String getMessage() {
-        return message;
+    public StockTrade getMessage() {
+        return trade;
     }
 
-    public void setMessage(String message) {
-        this.message = message;
+    public void setMessage(StockTrade trade) {
+        this.trade = trade;
     }
 }

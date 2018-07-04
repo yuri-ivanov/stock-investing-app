@@ -1,6 +1,6 @@
 package com.stockinvest.stock;
 
-import com.stockinvest.server.GreetingsListener;
+import com.stockinvest.server.BigVolumeListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +12,7 @@ import java.util.List;
 
 @Service
 public class StockService {
-    private static final Logger log = LoggerFactory.getLogger(GreetingsListener.class);
+    private static final Logger log = LoggerFactory.getLogger(BigVolumeListener.class);
 
     @Autowired
     private StockPriceDataSource stockPriceDataSource;

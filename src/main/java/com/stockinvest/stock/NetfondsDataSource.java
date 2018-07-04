@@ -7,6 +7,8 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
@@ -43,7 +45,8 @@ public class NetfondsDataSource implements StockPriceDataSource {
 
     public StockTrade readStockPrice(String csvData){
         String[] items = csvData.split(",");
-        return new StockTrade(LocalDateTime.parse(get(items,0), priceDateTimeFormat), Float.parseFloat(get(items,1)), Integer.parseInt(get(items,2)), parseOrderType(get(items,6)));
+
+        return new StockTrade(LocalDateTime.parse(get(items,0), priceDateTimeFormat).atZone(ZoneId.systemDefault()).toInstant().toEpochMilli(), Float.parseFloat(get(items,1)), Integer.parseInt(get(items,2)), parseOrderType(get(items,6)));
     }
 
     <T> T get(T[] items, int i){
