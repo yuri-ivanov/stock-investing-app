@@ -1,5 +1,5 @@
 {
-  "name": "stock-app",
+  "name": "stock-invest-app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -7,7 +7,6 @@
     "d3-format": "^1.2.1",
     "d3-scale": "^1.0.7",
     "d3-time-format": "^2.1.1",
-    
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-stockcharts": "^0.7.7"
